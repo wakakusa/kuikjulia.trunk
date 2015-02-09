@@ -1,5 +1,8 @@
-以下の操作は、アイコンをクリックしても動きません。
-ショートカットキーでの操作でお願いします。
+required
+GTk+3
+gtksourceview 3
+vte
+gmodule
 
 command	shortcut kye
 copy		Ctrl+c
