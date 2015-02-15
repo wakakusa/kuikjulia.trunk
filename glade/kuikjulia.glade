@@ -576,13 +576,13 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkImageMenuItem" id="pallet_operation">
-                        <property name="label" translatable="yes">Operation</property>
+                      <object class="GtkImageMenuItem" id="pallet_Filesystem">
+                        <property name="label" translatable="yes">Filesystem</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="image">image5</property>
                         <property name="use_stock">False</property>
-                        <signal name="button-release-event" handler="cb_Pallet_Basic" swapped="no"/>
+                        <signal name="button-release-event" handler="cb_Pallet_Filesystem" swapped="no"/>
                       </object>
                     </child>
                     <child>

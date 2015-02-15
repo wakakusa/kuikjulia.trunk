@@ -26,7 +26,7 @@ SET(PROJECT_GLADE_DIR ${PROJECT_SOURCE_DIR}/glade)
 
 ##作成ターゲットの設定 
 SET(FUNCTION_LIB_TEST "test_func")
-SET(FUNCTION_LIB_BASIC "operation_func")
+SET(FUNCTION_LIB_BASIC "Filesystem_func")
 SET(FUNCTION_LIB_READ_DATA "read_data_func")
 SET(FUNCTION_LIB_WRITE_DATA "write_data_func")
 SET(FUNCTION_LIB_PARALLEL "paralle_func")

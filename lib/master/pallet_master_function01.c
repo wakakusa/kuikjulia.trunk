@@ -85,7 +85,7 @@ G_MODULE_EXPORT void Pallet_Master_filechooserdialog1_FileOpen_OK (GtkWidget *wi
   sprintf(Pallet_Master.row_names, "%s", gtk_entry_get_text(Pallet_Master.entry5));//オブジェクト名取得
   sprintf(Pallet_Master.dec, "%s", gtk_entry_get_text(Pallet_Master.entry6));//オブジェクト名取得
   
-  (Pallet_Operation.script1) = g_strconcat("setwd(\"",Pallet_Operation.file1,"\")\n",NULL);
+  (Pallet_Master.script1) = g_strconcat("setwd(\"",Pallet_Master.file1,"\")\n",NULL);
   (Pallet_Master.proc_flag1) =TRUE;
 
   
@@ -101,12 +101,12 @@ G_MODULE_EXPORT void Pallet_Master_filechooserdialog1_FileOpen_OK (GtkWidget *wi
 G_MODULE_EXPORT void create_workdirectory_chooserdialog_FileOpen_OK (GtkWidget *widget,gpointer data  )
 {
 
-  (Pallet_Operation.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Operation.window1));
+  (Pallet_Master.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Master.window1));
 
-  (Pallet_Operation.script1) = g_strconcat("setwd(\"",Pallet_Operation.file1,"\")\n",NULL);
+  (Pallet_Master.script1) = g_strconcat("setwd(\"",Pallet_Master.file1,"\")\n",NULL);
   
-  (Pallet_Operation.proc_flag1) =TRUE;
-  gtk_widget_destroy((Pallet_Operation.window1)); 
+  (Pallet_Master.proc_flag1) =TRUE;
+  gtk_widget_destroy((Pallet_Master.window1)); 
 }
 
 
@@ -116,7 +116,7 @@ G_MODULE_EXPORT void create_workdirectory_chooserdialog_FileOpen_OK (GtkWidget *
  * 
  * glade:workdirectory_chooserdialog
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_master_function1_for_terminal(GtkWidget *widget, gpointer data)
+G_MODULE_EXPORT void cb_Master_function1_for_terminal(GtkWidget *widget, gpointer data)
 {
   Vte_terminal_insert(&VTE[VTE_No],Pallet_Master.script1);
   g_free(Pallet_Master.script1);
@@ -129,10 +129,9 @@ G_MODULE_EXPORT void cb_master_function1_for_terminal(GtkWidget *widget, gpointe
  * 
  * glade:workdirectory_chooserdialog
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_master_function1_for_editor(GtkWidget *widget, gpointer data)
+G_MODULE_EXPORT void cb_Master_function1_for_editor(GtkWidget *widget, gpointer data)
 {
   ScriptEditor_insert(&SCRIPTEDITOR[SCRIPTEDITOR_No],Pallet_Master.script1);
   g_free(Pallet_Master.script1);
   (Pallet_Master.proc_flag1) =FALSE;
 }
-
