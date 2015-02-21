@@ -241,7 +241,8 @@
                 <property name="encoding">UTF-8</property>
                 <property name="scrollback_lines">5120</property>
                 <property name="scroll_on_keystroke">True</property>
-                <property name="scroll_on_output">False</property>
+                <accelerator key="v" signal="paste-clipboard" modifiers="GDK_CONTROL_MASK"/>
+                <accelerator key="c" signal="copy-clipboard" modifiers="GDK_CONTROL_MASK"/>
               </object>
             </child>
           </object>

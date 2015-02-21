@@ -32,6 +32,6 @@ StructPalletWidget Pallet_Filesystem;
 StructPalletWidget Pallet_Read_Data;
 StructPalletWidget Pallet_Write_Data;
 StructPalletWidget Pallet_Test;
-
+StructPalletWidget Pallet_Essentials;
 
 
