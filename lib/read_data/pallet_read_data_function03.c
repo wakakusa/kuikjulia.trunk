@@ -98,7 +98,7 @@ G_MODULE_EXPORT void Read_CSVfile_chooserdialog2_FileOpen_OK (GtkWidget *widget,
   /*将来の引数拡張対応のために残しておく
   (Pallet_Read_Data.script1) =g_strconcat(Pallet_Read_Data.object_name," = read.table(\"",Pallet_Read_Data.file1,"\",header=",Pallet_Read_Data.TF_flag1,",separator =';',dec=\",\",skip=",Pallet_Read_Data.skip,",comment.char=",Pallet_Read_Data.comment_char,",row.names=",Pallet_Read_Data.row_names,");\n",NULL);
 */
-  (Pallet_Read_Data.script1) = g_strconcat(g_strconcat(Pallet_Read_Data.object_name," = readtable(\"",Pallet_Read_Data.file1,"\",header=",Pallet_Read_Data.TF_flag1,",separator =';');\n",NULL));
+  (Pallet_Read_Data.script1) = g_strconcat("using DataFrames\n",Pallet_Read_Data.object_name," = readtable(\"",Pallet_Read_Data.file1,"\",header=",Pallet_Read_Data.TF_flag1,",separator =';');\n",NULL);
 
   //OKボタンを押下したので後続処理を実行させるためにflagを変更する。
  (Pallet_Read_Data.proc_flag1)=TRUE;

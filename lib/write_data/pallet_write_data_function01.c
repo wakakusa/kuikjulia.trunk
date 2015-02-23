@@ -77,7 +77,7 @@ G_MODULE_EXPORT void create_WriteText_filechooserdialog_OK (GtkWidget *widget,gp
   /*将来の引数オプションのために残している
   Pallet_Write_Data.script1 =g_strconcat("writetable(\"",Pallet_Write_Data.file1,"\",",Pallet_Write_Data.object_name,",row.names=",Pallet_Write_Data.TF_flag1,",col.names=",Pallet_Write_Data.TF_flag2,");\n",NULL);
   */
- Pallet_Write_Data.script1 =g_strconcat("writetable(\"",Pallet_Write_Data.file1,"\",",Pallet_Write_Data.object_name,");\n",NULL);
+ Pallet_Write_Data.script1 =g_strconcat("using DataFrames\n","writetable(\"",Pallet_Write_Data.file1,"\",",Pallet_Write_Data.object_name,");\n",NULL);
  (Pallet_Write_Data.proc_flag1) =TRUE;
 
   gtk_widget_destroy((Pallet_Write_Data.window1)); 
