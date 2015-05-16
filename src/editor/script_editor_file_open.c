@@ -1,8 +1,9 @@
 #include "headers.h"
 #include "defines.h"
-#include "script_editor_window_structures.h"
 #include "UserInterfaceFile.h"
+#include "kuikjulia_window.h"
 #include "vte_window_structures.h"
+#include "script_editor_window_structures.h"
 
 /**********************************************************************************************
  * Script Editorのfile open 定義。 
@@ -79,7 +80,20 @@ G_MODULE_EXPORT void Script_FileOpen_Cancel(GtkWidget *widget, gpointer data)
  **********************************************************************************************/
 G_MODULE_EXPORT void Script_FileOpen_OK (GtkWidget *widget,gpointer data  )
 {
-  StructSCRIPTEDITORWidget *struct_widget =&SCRIPTEDITOR[SCRIPTEDITOR_No];
+  /*テキストウィンドの作成*/
+  create_script_editor(&SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark],UserInterfaceFile3,"scriptEditor");
+ 
+  /*SCRIPTEDITOR_No_HighWaterMarkを格納しどのウィンドを最終的にアクティブにしたか把握できるようにする*/
+  gchar Management_No[3];
+  sprintf(Management_No,"%d",SCRIPTEDITOR_No_HighWaterMark);
+  gtk_label_set_text( SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark].Management_SCRIPTEDITOR_No , Management_No );
+   
+  /* windowの表示 */
+  gtk_widget_show_all((SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark].window1)); 
+  StructSCRIPTEDITORWidget *struct_widget =&SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark];
+  SCRIPTEDITOR_No_HighWaterMark++;//SCRIPTEDITOR_Noのカウントアップ
+  
+//  StructSCRIPTEDITORWidget *struct_widget =&SCRIPTEDITOR[SCRIPTEDITOR_No];
   gchar *file;
   gchar *buf;
   gsize size;
