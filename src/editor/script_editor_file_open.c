@@ -80,6 +80,7 @@ G_MODULE_EXPORT void Script_FileOpen_Cancel(GtkWidget *widget, gpointer data)
  **********************************************************************************************/
 G_MODULE_EXPORT void Script_FileOpen_OK (GtkWidget *widget,gpointer data  )
 {
+  gint highwatermark=SCRIPTEDITOR_No_HighWaterMark;
   /*テキストウィンドの作成*/
   create_script_editor(&SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark],UserInterfaceFile3,"scriptEditor");
  
@@ -91,7 +92,6 @@ G_MODULE_EXPORT void Script_FileOpen_OK (GtkWidget *widget,gpointer data  )
   /* windowの表示 */
   gtk_widget_show_all((SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark].window1)); 
   StructSCRIPTEDITORWidget *struct_widget =&SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark];
-  SCRIPTEDITOR_No_HighWaterMark++;//SCRIPTEDITOR_Noのカウントアップ
   
 //  StructSCRIPTEDITORWidget *struct_widget =&SCRIPTEDITOR[SCRIPTEDITOR_No];
   gchar *file;
@@ -106,7 +106,12 @@ G_MODULE_EXPORT void Script_FileOpen_OK (GtkWidget *widget,gpointer data  )
     g_free(buf);
   }
   
-  SCRIPT_OpenSave[SCRIPTEDITOR_No].QuikSave_flag=TRUE ;
+  /*window title変更*/
+  gtk_window_set_title( SCRIPTEDITOR[SCRIPTEDITOR_No_HighWaterMark].window1, SCRIPT_OpenSave[SCRIPTEDITOR_No].file1 );
+  
+  SCRIPT_OpenSave[SCRIPTEDITOR_No_HighWaterMark].QuikSave_flag=TRUE ;
+  SCRIPTEDITOR_No_HighWaterMark++;//SCRIPTEDITOR_Noのカウントアップ
+
   
   gtk_widget_destroy((SCRIPT_OpenSave[SCRIPTEDITOR_No].window1)); 
 }
