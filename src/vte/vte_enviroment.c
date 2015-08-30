@@ -191,14 +191,17 @@ extern int exe_enviroment_save(char INI_FILE[PATH_LENGTH])
 	
 	/* bin file path*/
 	buf=gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton011));
+	g_sprintf (EXE_ENVIROMENT.BIN_FILE_PATH,"%s",buf);
 	fprintf(fp, "#BIN_PATH\n%s\n", buf);
 
 	/*working directory*/
 	buf=gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton012));
+	g_sprintf (EXE_ENVIROMENT.Flag_home,"%s",buf);
 	fprintf(fp, "#START_WORKING_DIRECTORY\n%d %s\n", gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button011) ,buf);
 
 	/*process*/
 	buf=gtk_entry_get_text(EXE_ENVIROMENT.entry011);
+	g_sprintf (EXE_ENVIROMENT.process,"%s",buf);
 	fprintf(fp, "#parallel\n%d %s\n", gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button012) , buf );
 
 	/*no_history*/
