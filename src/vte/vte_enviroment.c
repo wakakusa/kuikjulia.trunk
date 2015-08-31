@@ -182,7 +182,6 @@ extern int exe_enviroment_load(char INI_FILE[PATH_LENGTH])
 extern int exe_enviroment_save(char INI_FILE[PATH_LENGTH])
 {
 	FILE *fp;
-	gchar *buf;
 
 	if ((fp = fopen(INI_FILE, "w")) == NULL)
 	{
@@ -190,28 +189,30 @@ extern int exe_enviroment_save(char INI_FILE[PATH_LENGTH])
 	}
 	
 	/* bin file path*/
-	buf=gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton011));
-	g_sprintf (EXE_ENVIROMENT.BIN_FILE_PATH,"%s",buf);
-	fprintf(fp, "#BIN_PATH\n%s\n", buf);
+	g_sprintf (EXE_ENVIROMENT.BIN_FILE_PATH,"%s",gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton011)));
+	fprintf(fp, "#BIN_PATH\n%s\n", EXE_ENVIROMENT.BIN_FILE_PATH);
 
 	/*working directory*/
-	buf=gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton012));
-	g_sprintf (EXE_ENVIROMENT.Flag_home,"%s",buf);
-	fprintf(fp, "#START_WORKING_DIRECTORY\n%d %s\n", gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button011) ,buf);
+	EXE_ENVIROMENT.Flag_home=gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button011);
+	g_sprintf (EXE_ENVIROMENT.START_WORKING_DIRECTORY,"%s",gtk_file_chooser_get_filename((EXE_ENVIROMENT.filechooserbutton012)));
+	fprintf(fp, "#START_WORKING_DIRECTORY\n%d %s\n", EXE_ENVIROMENT.Flag_home , EXE_ENVIROMENT.START_WORKING_DIRECTORY);
 
 	/*process*/
-	buf=gtk_entry_get_text(EXE_ENVIROMENT.entry011);
-	g_sprintf (EXE_ENVIROMENT.process,"%s",buf);
-	fprintf(fp, "#parallel\n%d %s\n", gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button012) , buf );
+	EXE_ENVIROMENT.Flag_process=gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button012);
+	g_sprintf (EXE_ENVIROMENT.process,"%s",gtk_entry_get_text(EXE_ENVIROMENT.entry011));
+	fprintf(fp, "#parallel\n%d %s\n", EXE_ENVIROMENT.Flag_process , EXE_ENVIROMENT.process );
 
 	/*no_history*/
-	fprintf(fp, "#no_history\n%d\n",gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button013));
+	EXE_ENVIROMENT.Flag_history=gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button013);
+	fprintf(fp, "#no_history\n%d\n",EXE_ENVIROMENT.Flag_history);
 
 	/*startup*/
-	fprintf(fp, "#startup\n%d\n",gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button014));
+	EXE_ENVIROMENT.Flag_startup=gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button014);
+	fprintf(fp, "#startup\n%d\n",EXE_ENVIROMENT.Flag_startup);
 	
 	/*quiet*/
-	fprintf(fp, "#quiet\n%d\n",gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button015));
+	EXE_ENVIROMENT.Flag_quiet=gtk_toggle_button_get_active(EXE_ENVIROMENT.check_button015);
+	fprintf(fp, "#quiet\n%d\n",EXE_ENVIROMENT.Flag_quiet);
 
 	fclose(fp);
 	

@@ -384,6 +384,7 @@
     <property name="title" translatable="yes">kuikjulia Main Window</property>
     <property name="default_width">440</property>
     <property name="icon">./pixmaps/kuikjulia.svg</property>
+    <property name="gravity">north-east</property>
     <signal name="destroy" handler="kuikjulia_quit" swapped="no"/>
     <child>
       <object class="GtkBox" id="box3">
