@@ -553,9 +553,112 @@
       <action-widget response="0">Read_filechooserdialog1_ok_button1</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkFileFilter" id="filefilter_JLD">
+    <patterns>
+      <pattern>*.JLD</pattern>
+      <pattern>*.jld</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileChooserDialog" id="Read_JLD_filechooserdialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Write to HDF5</property>
+    <property name="role">GtkFileChooserDialog</property>
+    <property name="type_hint">dialog</property>
+    <property name="action">save</property>
+    <property name="do_overwrite_confirmation">True</property>
+    <property name="filter">filefilter_JLD</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="filechooserdialog-vbox3">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="filechooserdialog-action_area3">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="Read_JLD_filechooserdialog_cancel_button">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="Read_JLD_filechooserdialog_ok_button">
+                <property name="label">gtk-save</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="create_ReadJLD_filechooserdialog_OK" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="grid_JLD">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="Read_JLD_filechooserdialog_label11">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">variable_name</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="Read_JLD_filechooserdialog_entry_variable_name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="text" translatable="yes">x</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">Read_JLD_filechooserdialog_cancel_button</action-widget>
+      <action-widget response="0">Read_JLD_filechooserdialog_ok_button</action-widget>
+    </action-widgets>
+  </object>
   <object class="GtkFileFilter" id="filefilter_hdf5">
     <patterns>
       <pattern>*.h5</pattern>
+      <pattern>*.hdf5</pattern>
     </patterns>
   </object>
   <object class="GtkFileChooserDialog" id="Read_HDF5_filechooserdialog">
@@ -599,7 +702,7 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="ReadHDF5_filechooserdialog_FileOpen_OK" swapped="no"/>
+                <signal name="clicked" handler="create_ReadHDF5_filechooserdialog_OK" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>

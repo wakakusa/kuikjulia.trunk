@@ -207,6 +207,7 @@
   <object class="GtkFileFilter" id="filefilter_JLD">
     <patterns>
       <pattern>*.JLD</pattern>
+      <pattern>*.jld</pattern>
     </patterns>
   </object>
   <object class="GtkFileChooserDialog" id="Write_JLD_filechooserdialog">
@@ -309,6 +310,7 @@
   <object class="GtkFileFilter" id="filefilter_hdf5">
     <patterns>
       <pattern>*.h5</pattern>
+      <pattern>*.hdf5</pattern>
     </patterns>
   </object>
   <object class="GtkFileChooserDialog" id="Write_HDF5_filechooserdialog">
