@@ -62,8 +62,9 @@ G_MODULE_EXPORT void create_ReadJLD_filechooserdialog_OK (GtkWidget *widget,gpoi
 	//保存先ファイル名を取得
 	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
 	Pallet_Read_Data.script1 =g_strconcat("using JLD\n","load(\"",Pallet_Read_Data.file_path1,"\",",Pallet_Read_Data.variable_name,NULL);
+	g_free(Pallet_Read_Data.file_path1);
 	
-	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,")\n",NULL);
+	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);
 	(Pallet_Read_Data.process_check_flag1) =TRUE;
 
 	gtk_widget_destroy((Pallet_Read_Data.function_window1)); 
@@ -78,7 +79,7 @@ G_MODULE_EXPORT void create_ReadJLD_filechooserdialog_OK (GtkWidget *widget,gpoi
 *****************************************************************************************************/
 G_MODULE_EXPORT void cb_read_data_function3_for_terminal(GtkWidget *widget, gpointer data)
 {
-  create_Read_JLD_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile03,"Read_JLD_filechooserdialog");
+  create_Read_JLD_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_JLD_filechooserdialog");
   gtk_dialog_run(GTK_DIALOG(Pallet_Read_Data.function_window1));
   gtk_widget_destroy(Pallet_Read_Data.function_window1);
 
@@ -99,7 +100,7 @@ G_MODULE_EXPORT void cb_read_data_function3_for_terminal(GtkWidget *widget, gpoi
 *****************************************************************************************************/
 G_MODULE_EXPORT void cb_read_data_function3_for_editor(GtkWidget *widget, gpointer data)
 {
-  create_Read_JLD_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile03,"Read_JLD_filechooserdialog");
+  create_Read_JLD_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_JLD_filechooserdialog");
   gtk_dialog_run(GTK_DIALOG(Pallet_Read_Data.function_window1));
   gtk_widget_destroy(Pallet_Read_Data.function_window1);
 

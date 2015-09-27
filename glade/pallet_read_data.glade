@@ -565,7 +565,6 @@
     <property name="title" translatable="yes">Write to HDF5</property>
     <property name="role">GtkFileChooserDialog</property>
     <property name="type_hint">dialog</property>
-    <property name="action">save</property>
     <property name="do_overwrite_confirmation">True</property>
     <property name="filter">filefilter_JLD</property>
     <child internal-child="vbox">

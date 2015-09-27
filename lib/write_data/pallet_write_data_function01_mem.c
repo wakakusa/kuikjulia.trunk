@@ -7,7 +7,7 @@
 
 /**********************************************************************************************
  * function1:textファイルへ dataの書き込み関数定義。 
- * 
+ * メモリー管理をユーザーで実施。ただし、Glib仕様を見ると、メモリ管理不要？
  **********************************************************************************************/
 
 
@@ -68,22 +68,38 @@ G_MODULE_EXPORT void create_WriteText_filechooserdialog_OK (GtkWidget *widget,gp
 		
 	//保存先ファイル名を取得
 	Pallet_Write_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Write_Data.function_window1));
+	Pallet_Write_Data.script1_length=strlen( g_strconcat("using DataFrames\n","writetable(\"",Pallet_Write_Data.file_path1,"\",",Pallet_Write_Data.variable_name,NULL) );
+	Pallet_Write_Data.script1 =g_malloc0(Pallet_Write_Data.script1_length);
 	Pallet_Write_Data.script1 =g_strconcat("using DataFrames\n","writetable(\"",Pallet_Write_Data.file_path1,"\",",Pallet_Write_Data.variable_name,NULL);
 	g_free(Pallet_Write_Data.file_path1);
 
 	//file's header 制御
-	Pallet_Write_Data.header=g_malloc(6);
 	Pallet_Write_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Write_Data.checkbutton_header);
+
+	Pallet_Write_Data.header_length=strlen( g_strconcat(",header=",toggle_button_active_str[Pallet_Write_Data.toggle_button_active],NULL) );
+	Pallet_Write_Data.script1_length=Pallet_Write_Data.script1_length+Pallet_Write_Data.header_length;
+	
+	Pallet_Write_Data.header=g_malloc0(Pallet_Write_Data.header_length);	
 	Pallet_Write_Data.header=g_strconcat(",header=",toggle_button_active_str[Pallet_Write_Data.toggle_button_active],NULL);
+	
+	Pallet_Write_Data.script1=g_realloc (Pallet_Write_Data.script1,Pallet_Write_Data.script1_length);
 	Pallet_Write_Data.script1 =g_strconcat(Pallet_Write_Data.script1,Pallet_Write_Data.header,NULL);
 	g_free(Pallet_Write_Data.header);
   
-  /*separator 制御*/
+	//separator 制御
 	Pallet_Write_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Write_Data.checkbutton_separator);
+
 	if(Pallet_Write_Data.toggle_button_active==TRUE)
 	{
+		Pallet_Write_Data.separator_length=strlen( g_strconcat(",separator='",gtk_entry_get_text(Pallet_Write_Data.entry_separator),"'",NULL) );
+		Pallet_Write_Data.script1_length=Pallet_Write_Data.script1_length+Pallet_Write_Data.separator_length;
+		
+		Pallet_Write_Data.separator=g_malloc0(Pallet_Write_Data.separator_length);
 		Pallet_Write_Data.separator=g_strconcat(",separator='",gtk_entry_get_text(Pallet_Write_Data.entry_separator),"'",NULL);
+		
+		Pallet_Write_Data.script1=g_realloc (Pallet_Write_Data.script1,Pallet_Write_Data.script1_length);
 		Pallet_Write_Data.script1 =g_strconcat(Pallet_Write_Data.script1,Pallet_Write_Data.separator,NULL);
+		
 		g_free(Pallet_Write_Data.separator);
 	}
 
@@ -92,10 +108,17 @@ G_MODULE_EXPORT void create_WriteText_filechooserdialog_OK (GtkWidget *widget,gp
 	Pallet_Write_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Write_Data.checkbutton_quotemark);
 	if(Pallet_Write_Data.toggle_button_active==TRUE)
 	{
+		Pallet_Write_Data.quotemark_length=strlen( g_strconcat(",quotemark='",gtk_entry_get_text(Pallet_Write_Data.entry_quotemark),"'",NULL) );
+		Pallet_Write_Data.script1_length=Pallet_Write_Data.script1_length+Pallet_Write_Data.quotemark_length;
+		
+		Pallet_Write_Data.quotemark=g_malloc0(Pallet_Write_Data.quotemark_length);
 		Pallet_Write_Data.quotemark=g_strconcat(",quotemark='",gtk_entry_get_text(Pallet_Write_Data.entry_quotemark),"'",NULL);
+		
+		Pallet_Write_Data.script1=g_realloc (Pallet_Write_Data.script1,Pallet_Write_Data.script1_length);
 		Pallet_Write_Data.script1 =g_strconcat(Pallet_Write_Data.script1,Pallet_Write_Data.quotemark,NULL);
 		g_free(Pallet_Write_Data.quotemark);
 	}
+
 	
 	Pallet_Write_Data.script1=g_strconcat(Pallet_Write_Data.script1,");\n",NULL);
 	(Pallet_Write_Data.process_check_flag1) =TRUE;

@@ -62,8 +62,9 @@ G_MODULE_EXPORT void create_WriteJLD_filechooserdialog_OK (GtkWidget *widget,gpo
 	//保存先ファイル名を取得
 	Pallet_Write_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Write_Data.function_window1));
 	Pallet_Write_Data.script1 =g_strconcat("using JLD\n","write(\"",Pallet_Write_Data.file_path1,"\",",Pallet_Write_Data.variable_name,NULL);
+	g_free(Pallet_Write_Data.file_path1);
 	
-	Pallet_Write_Data.script1=g_strconcat(Pallet_Write_Data.script1,")\n",NULL);
+	Pallet_Write_Data.script1=g_strconcat(Pallet_Write_Data.script1,");\n",NULL);
 	(Pallet_Write_Data.process_check_flag1) =TRUE;
 
 	gtk_widget_destroy((Pallet_Write_Data.function_window1)); 
