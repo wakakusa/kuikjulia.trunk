@@ -65,7 +65,7 @@ G_MODULE_EXPORT void create_WriteHDF5_filechooserdialog_OK (GtkWidget *widget,gp
 		
 	//保存先ファイル名を取得
 	Pallet_Write_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Write_Data.function_window1));
-	Pallet_Write_Data.script1 =g_strconcat("using HDF5\n","h5write(\"",Pallet_Write_Data.file_path1,"\",",Pallet_Write_Data.variable_name,",\"",Pallet_Write_Data.groupe_name,"\"",NULL);
+	Pallet_Write_Data.script1 =g_strconcat("using HDF5\n","h5write(\"",Pallet_Write_Data.file_path1,"\",\"",Pallet_Write_Data.groupe_name,"\",",Pallet_Write_Data.variable_name,NULL);
 	g_free(Pallet_Write_Data.file_path1);
 	
 	Pallet_Write_Data.script1=g_strconcat(Pallet_Write_Data.script1,");\n",NULL);

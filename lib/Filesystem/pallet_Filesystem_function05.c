@@ -53,9 +53,7 @@ void create_save_filechooserdialog(StructPalletFilesystemWidget *struct_widget,c
 *****************************************************************************************************/
 G_MODULE_EXPORT void create_save_filechooserdialog_OK (GtkWidget *widget,gpointer data  )
 {
- g_free(Pallet_Filesystem.variable_name);//ここでないと固まる。なぜ？
-  (Pallet_Filesystem.file_path1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Filesystem.function_window1));
-
+  Pallet_Filesystem.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Filesystem.function_window1));
   Pallet_Filesystem.variable_name=gtk_entry_get_text(Pallet_Filesystem.entry_variable_name);//変数名取得
 
   Pallet_Filesystem.script1 =g_strconcat("save(",Pallet_Filesystem.variable_name,",file=\"",Pallet_Filesystem.file_path1,"\")\n",NULL);

@@ -803,7 +803,6 @@
                   <object class="GtkFrame" id="frame01">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">set working directory</property>
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
@@ -874,7 +873,6 @@
                   <object class="GtkFrame" id="frame02">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">get working directory</property>
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>
@@ -945,7 +943,6 @@
                   <object class="GtkFrame" id="frame03">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">set source file</property>
                     <property name="label_xalign">0</property>
                     <property name="shadow_type">none</property>
                     <child>

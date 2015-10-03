@@ -61,7 +61,7 @@ G_MODULE_EXPORT void create_ReadJLD_filechooserdialog_OK (GtkWidget *widget,gpoi
 
 	//保存先ファイル名を取得
 	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
-	Pallet_Read_Data.script1 =g_strconcat("using JLD\n","load(\"",Pallet_Read_Data.file_path1,"\",",Pallet_Read_Data.variable_name,NULL);
+	Pallet_Read_Data.script1 =g_strconcat("using JLD\n",Pallet_Read_Data.variable_name,"=load(\"",Pallet_Read_Data.file_path1,"\"",NULL);
 	g_free(Pallet_Read_Data.file_path1);
 	
 	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);

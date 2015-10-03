@@ -72,7 +72,6 @@ G_MODULE_EXPORT void create_WriteText_filechooserdialog_OK (GtkWidget *widget,gp
 	g_free(Pallet_Write_Data.file_path1);
 
 	//file's header 制御
-	Pallet_Write_Data.header=g_malloc(6);
 	Pallet_Write_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Write_Data.checkbutton_header);
 	Pallet_Write_Data.header=g_strconcat(",header=",toggle_button_active_str[Pallet_Write_Data.toggle_button_active],NULL);
 	Pallet_Write_Data.script1 =g_strconcat(Pallet_Write_Data.script1,Pallet_Write_Data.header,NULL);

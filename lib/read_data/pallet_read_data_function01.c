@@ -116,60 +116,55 @@ G_MODULE_EXPORT void ReadText_filechooserdialog_FileOpen_OK (GtkWidget *widget,g
 	g_free(Pallet_Read_Data.file_path1);
 	
 	//header
-	Pallet_Read_Data.header=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_header);
 	Pallet_Read_Data.header=g_strconcat(",header=",toggle_button_active_str[Pallet_Read_Data.toggle_button_active],NULL);
 	Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.header,NULL);
+	g_free(Pallet_Read_Data.header);
 
 	//separator
-	Pallet_Read_Data.separator=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_separator);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.separator=g_strconcat(",separator='",gtk_entry_get_text(Pallet_Read_Data.entry_separator),"'",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.separator,NULL);
+		g_free(Pallet_Read_Data.separator);
 	}
-	g_free(Pallet_Read_Data.separator);
 	
 	//quotemark
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_quotemark);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
-		Pallet_Read_Data.quotemark=g_malloc( sizeof(g_strconcat(",quotemark=['",gtk_entry_get_text(Pallet_Read_Data.entry_quotemark),"']",NULL)) );
 		Pallet_Read_Data.quotemark=g_strconcat(",quotemark=['",gtk_entry_get_text(Pallet_Read_Data.entry_quotemark),"']",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.quotemark,NULL);
+		g_free(Pallet_Read_Data.quotemark);
 	}
-	g_free(Pallet_Read_Data.quotemark);
-	
+		
 	//decimal
-	Pallet_Read_Data.decimal=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_quotemark);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.decimal=g_strconcat(",decimal='",gtk_entry_get_text(Pallet_Read_Data.entry_decimal),"'",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.decimal,NULL);
+		g_free(Pallet_Read_Data.decimal);
 	}
-	g_free(Pallet_Read_Data.decimal);	
 	
 	//nastrings
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_nastrings);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
-		Pallet_Read_Data.nastrings=g_malloc( sizeof(g_strconcat(",nastrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_nastrings),"]",NULL)) );
 		Pallet_Read_Data.nastrings=g_strconcat(",nastrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_nastrings),"]",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.nastrings,NULL);
+		g_free(Pallet_Read_Data.nastrings);	
 	}
-	g_free(Pallet_Read_Data.nastrings);		
 	
 	//truestrings
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_truestrings);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
-		Pallet_Read_Data.truestrings=g_malloc( sizeof(g_strconcat(",truestrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_truestrings),"]",NULL)) );
 		Pallet_Read_Data.truestrings=g_strconcat(",truestrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_truestrings),"]",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.truestrings,NULL);
+		g_free(Pallet_Read_Data.truestrings);
 	}
-	g_free(Pallet_Read_Data.truestrings);			
 	
 	//falsestrings
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_falsestrings);
@@ -178,18 +173,17 @@ G_MODULE_EXPORT void ReadText_filechooserdialog_FileOpen_OK (GtkWidget *widget,g
 		Pallet_Read_Data.falsestrings=g_malloc(g_strconcat(",falsestrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_falsestrings),"]",NULL));
 		Pallet_Read_Data.falsestrings=g_strconcat(",falsestrings=[",gtk_entry_get_text(Pallet_Read_Data.entry_falsestrings),"]",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.falsestrings,NULL);
+		g_free(Pallet_Read_Data.falsestrings);
 	}
-	g_free(Pallet_Read_Data.falsestrings);			
 	
 	//makefactors
-	Pallet_Read_Data.makefactors=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_makefactors);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.makefactors=g_strconcat(",makefactors=",toggle_button_active_str[Pallet_Read_Data.toggle_button_active],NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.makefactors,NULL);
+		g_free(Pallet_Read_Data.makefactors);
 	}
-	g_free(Pallet_Read_Data.makefactors);			
 	
 	//nrows
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_nrows);
@@ -197,97 +191,90 @@ G_MODULE_EXPORT void ReadText_filechooserdialog_FileOpen_OK (GtkWidget *widget,g
 	{
 		Pallet_Read_Data.nrows=g_strconcat(",nrows=",gtk_entry_get_text(Pallet_Read_Data.entry_nrows),NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.nrows,NULL);
+		g_free(Pallet_Read_Data.nrows);
 	}
 	
 	//names
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_names);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
-		Pallet_Read_Data.names=g_malloc(g_strconcat(",names=[",gtk_entry_get_text(Pallet_Read_Data.entry_names),"]",NULL));
 		Pallet_Read_Data.names=g_strconcat(",names=[",gtk_entry_get_text(Pallet_Read_Data.entry_names),"]",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.names,NULL);
+		g_free(Pallet_Read_Data.names);
 	}
-	g_free(Pallet_Read_Data.names);			
 	
 	//eltypes
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_eltypes);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
-		Pallet_Read_Data.eltypes=g_malloc(g_strconcat(",eltypes=[",gtk_entry_get_text(Pallet_Read_Data.entry_eltypes),"]",NULL));
 		Pallet_Read_Data.eltypes=g_strconcat(",eltypes=[",gtk_entry_get_text(Pallet_Read_Data.entry_eltypes),"]",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.eltypes,NULL);
+		g_free(Pallet_Read_Data.eltypes);
 	}
-	g_free(Pallet_Read_Data.eltypes);		
 	
 	//allowcomments
-	Pallet_Read_Data.allowcomments=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_allowcomments);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.allowcomments=g_strconcat(",allowcomments=",toggle_button_active_str[Pallet_Read_Data.toggle_button_active],NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.allowcomments,NULL);
+		g_free(Pallet_Read_Data.allowcomments);
 	}
-	g_free(Pallet_Read_Data.allowcomments);		
 	
 	//commentmark
-	Pallet_Read_Data.commentmark=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_commentmark);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.commentmark=g_strconcat(",commentmark='",gtk_entry_get_text(Pallet_Read_Data.entry_commentmark),"'",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.commentmark,NULL);
+		g_free(Pallet_Read_Data.commentmark);	
 	}
-	g_free(Pallet_Read_Data.commentmark);	
 	
 	//ignorepadding
-	Pallet_Read_Data.ignorepadding=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_ignorepadding);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.ignorepadding=g_strconcat(",ignorepadding=",toggle_button_active_str[Pallet_Read_Data.toggle_button_active],NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.ignorepadding,NULL);
+		g_free(Pallet_Read_Data.ignorepadding);
 	}
-	g_free(Pallet_Read_Data.ignorepadding);		
 	
 	//skipstart
-	Pallet_Read_Data.skipstart=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_skipstart);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.skipstart=g_strconcat(",skipstart=",gtk_entry_get_text(Pallet_Read_Data.entry_skipstart),NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.skipstart,NULL);
+		g_free(Pallet_Read_Data.skipstart);	
 	}
-	g_free(Pallet_Read_Data.skipstart);		
 	
 	//skiprows
-	Pallet_Read_Data.skiprows=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_skiprows);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.skiprows=g_strconcat(",skiprows=",gtk_entry_get_text(Pallet_Read_Data.entry_skiprows),NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.skiprows,NULL);
+		g_free(Pallet_Read_Data.skiprows);
 	}
-	g_free(Pallet_Read_Data.skiprows);		
 	
 	//skipblanks
-	Pallet_Read_Data.skipblanks=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_skipblanks);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.skipblanks=g_strconcat(",skipblanks=",toggle_button_active_str[Pallet_Read_Data.toggle_button_active],NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.skipblanks,NULL);
+		g_free(Pallet_Read_Data.skipblanks);
 	}
-	g_free(Pallet_Read_Data.skipblanks);			
 	
 	//encoding
-	Pallet_Read_Data.encoding=g_malloc(6);
 	Pallet_Read_Data.toggle_button_active=gtk_toggle_button_get_active(Pallet_Read_Data.checkbutton_encoding);
 	if(Pallet_Read_Data.toggle_button_active==TRUE)
 	{
 		Pallet_Read_Data.encoding=g_strconcat(",encodings='",gtk_entry_get_text(Pallet_Read_Data.entry_encoding),"'",NULL);
 		Pallet_Read_Data.script1 =g_strconcat(Pallet_Read_Data.script1,Pallet_Read_Data.encoding,NULL);
+		g_free(Pallet_Read_Data.encoding);
 	}
-	g_free(Pallet_Read_Data.encoding);
+	
 
 	//finish
 	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);
