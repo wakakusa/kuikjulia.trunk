@@ -101,11 +101,12 @@ G_MODULE_EXPORT void Pallet_Essentials_filechooserdialog1_FileOpen_OK (GtkWidget
 G_MODULE_EXPORT void create_workdirectory_chooserdialog_FileOpen_OK (GtkWidget *widget,gpointer data  )
 {
 
-  (Pallet_Essentials.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Essentials.window1));
+  (Pallet_Essentials.file_path1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Essentials.window1));
 
   (Pallet_Essentials.script1) = g_strconcat("setwd(\"",Pallet_Essentials.file1,"\")\n",NULL);
+  g_free(Pallet_Essentials.file_path1);
   
-  (Pallet_Essentials.proc_flag1) =TRUE;
+  (Pallet_Essentials.rocess_check_flag1) =TRUE;
   gtk_widget_destroy((Pallet_Essentials.window1)); 
 }
 
@@ -120,7 +121,7 @@ G_MODULE_EXPORT void cb_Essentials_function1_for_terminal(GtkWidget *widget, gpo
 {
   Vte_terminal_insert(&VTE[VTE_No],Pallet_Essentials.script1);
   g_free(Pallet_Essentials.script1);
-  (Pallet_Essentials.proc_flag1) =FALSE;
+  (Pallet_Essentials.rocess_check_flag1) =FALSE;
 }
 
 /*****************************************************************************************************
@@ -133,5 +134,5 @@ G_MODULE_EXPORT void cb_Essentials_function1_for_editor(GtkWidget *widget, gpoin
 {
   ScriptEditor_insert(&SCRIPTEDITOR[SCRIPTEDITOR_No],Pallet_Essentials.script1);
   g_free(Pallet_Essentials.script1);
-  (Pallet_Essentials.proc_flag1) =FALSE;
+  (Pallet_Essentials.rocess_check_flag1) =FALSE;
 }

@@ -10,7 +10,7 @@ SET(soserial "1.0.0")
 ###### EXECUTABLE&SORCE_DEFINE #####
 ## 元となるソースSET
 SET(PALLET ${PROJECT_LIBRARY_DIR}/pallet_create.c)
-SET(FUNCTION_SOURCE pallet_quick.c pallet_quick_function01.c)
+#SET(FUNCTION_SOURCE pallet_quick.c pallet_quick_function01.c)
 
 
 ##ライブラリの作成
