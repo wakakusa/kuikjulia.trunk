@@ -15,3 +15,4 @@ Makefile
 /include/pallet_defines.h
 /.hgignore
 /src/.directory
+./*.geany
