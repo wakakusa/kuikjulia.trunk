@@ -5,30 +5,29 @@ kuikjulia
 juliaのスクリプト記述と実行を補助するアプリケーションです。
 
 ##必要なライブラリ
-<tr><td>cmake >= 2.64</td></tr>
-<tr><td>GTk+3 >= 3.14</td></tr>
-<tr><td>gtksourceview >= 3.14</td></tr>
-<tr><td>vte >= 0.38</td></tr>
-<tr><td>gmodule >= 2.42</td></tr>
+cmake >= 2.64  
+GTk+3 >= 3.14  
+gtksourceview >= 3.14  
+vte >= 0.38  
+gmodule >= 2.42  
 
-gtksourceviewとvteはgladeでも利用できるようにオプションを有効にしておく。
+gtksourceviewとvteはgladeでも利用できるようにしておいて下さい。
 
 ##コンパイル方法
-<tr><td>以下の手順で実行してください。ダウンロードしてきたファイル名をkuikujulia-*.tar.gzとします。</td></tr>
-<tr><td>tar zxf kuikjulia-*.tar.gz</td></tr>
-<tr><td>cd kuikjulia-*</td></tr>
-<tr><td>cmake .</td></tr>
-<tr><td>make</td></tr>
+以下の手順で実行してください。ダウンロードしてきたファイル名をkuikujulia-*.tar.gzとします。  
+tar zxf kuikjulia-*.tar.gz  
+cd kuikjulia-*  
+cmake .  
+make  
 
 ##実行方法
-解凍した圧縮ファイルのディレクトリ配下で以下のコマンドを実行してください。
+解凍した圧縮ファイルのディレクトリ配下で以下のコマンドを実行してください。  
 ./src/kuikjulia
 
 ##ショートカットキー
-<table>
-<tr><td>command</td>	<td>shortcut kye</td></tr>
-<tr><td>copy	</td>	<td>Ctrl+c</td></tr>
-<tr><td>paste</td>		<td>Ctrt+v</td></tr>
-<tr><td>undo	</td>	<td>Ctrl+z</td></tr>
-<tr><td>redo	</td>	<td>Ctrl+y</td></tr>
-</table>
+ command | shortcut kye
+---------|--------------
+copy     |Ctrl+c
+paste    |Ctrt+v
+undo     |Ctrl+z
+redo     |Ctrl+y
