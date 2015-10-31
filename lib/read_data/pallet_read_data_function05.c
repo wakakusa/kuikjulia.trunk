@@ -7,7 +7,7 @@
 
 
 /**********************************************************************************************
- * read_data function5:Delim2ファイルの読み込み 
+ * read_data function5:SAS7bdatファイルの読み込み 
  * 
  **********************************************************************************************/
 
@@ -16,9 +16,35 @@
  * function:データ読み込み用ダイアログ表示callback関数。 
  * 
  * 
- * glade:Read_Delimfile_chooserdialog2
+ * glade:Read_SAS_filechooserdialog
  **********************************************************************************************/
+void create_Read_SAS_filechooserdialog(StructPalletReadWriteData *struct_widget,char UI_FILE[PATH_LENGTH],char Window_name[512])
+{
+  GtkBuilder *builder;
+  GError* error = NULL;
 
+  /* GtkBuilder作成 */
+  builder = gtk_builder_new(); 
+  
+  /* UI_FILEの読み込み*/
+  if (!gtk_builder_add_from_file (builder, UI_FILE, &error))
+  {
+	g_warning ("Couldn't load builder file: %s", error->message);
+	g_error_free (error);
+  }
+
+  /* windowのオブジェクト取得 */
+  (struct_widget->function_window1) = GTK_WIDGET( gtk_builder_get_object(builder, Window_name)); 
+  /*複数のウィジェットを操作する場合、構造体に格納にすること。
+   * 格納先にあわせて、GTK_LABELやGTK_ENTRYなどGTK_～を変更すること。
+   *不明な場合はGTK_WIDGETでも可能。ただしエラーは出力される。*/
+   (struct_widget->entry_variable_name) 		 = GTK_ENTRY(gtk_builder_get_object(builder, "Read_JLD_filechooserdialog_entry_variable_name"));
+
+  /* UI_FILEのシグナルハンドラの設定  This is important */
+  gtk_builder_connect_signals (builder, &struct_widget); 
+
+   g_object_unref( G_OBJECT( builder ) );
+} 
 
 
 /**********************************************************************************************
@@ -27,18 +53,35 @@
  * 
  * glade:none
  **********************************************************************************************/
+G_MODULE_EXPORT void create_ReadSAS_filechooserdialog_OK (GtkWidget *widget,gpointer data  )
+{
+	const gchar *toggle_button_active_str[]={"false","true"};
 
+	//変数名取得
+	Pallet_Read_Data.variable_name=gtk_entry_get_text(Pallet_Read_Data.entry_variable_name);//変数名取得
+
+
+	//保存先ファイル名を取得
+	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
+	Pallet_Read_Data.script1 =g_strconcat("using DataRead\n",Pallet_Read_Data.variable_name,"=read_sas7bdat(\"",Pallet_Read_Data.file_path1,"\"",NULL);
+	g_free(Pallet_Read_Data.file_path1);
+	
+	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);
+	(Pallet_Read_Data.process_check_flag1) =TRUE;
+
+	gtk_widget_destroy((Pallet_Read_Data.function_window1)); 
+}
 
 
 /*****************************************************************************************************
  * function:ターミナル用処理
  * 
  * 
- * glade:Read_Delimfile_chooserdialog2
+ * glade:Read_SAS_filechooserdialog
 *****************************************************************************************************/
 G_MODULE_EXPORT void cb_read_data_function5_for_terminal(GtkWidget *widget, gpointer data)
 {
-  create_ReadText_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_Textfile_chooserdialog");
+  create_ReadText_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_SAS_filechooserdialog");
   gtk_dialog_run(GTK_DIALOG(Pallet_Read_Data.function_window1));
   gtk_widget_destroy(Pallet_Read_Data.function_window1);
     
@@ -60,7 +103,7 @@ G_MODULE_EXPORT void cb_read_data_function5_for_terminal(GtkWidget *widget, gpoi
 *****************************************************************************************************/
 G_MODULE_EXPORT void cb_read_data_function5_for_editor(GtkWidget *widget, gpointer data)
 {
-  create_ReadText_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_Textfile_chooserdialog");
+  create_ReadText_filechooserdialog(&Pallet_Read_Data,PalletInterfaceFile02,"Read_SAS_filechooserdialog");
   gtk_dialog_run(GTK_DIALOG(Pallet_Read_Data.function_window1));
   gtk_widget_destroy(Pallet_Read_Data.function_window1);
    

@@ -778,6 +778,107 @@
       <action-widget response="0">Read_HDF5_filechooserdialog_ok_button</action-widget>
     </action-widgets>
   </object>
+  <object class="GtkFileFilter" id="filefilter_sas">
+    <patterns>
+      <pattern>*.sas7bdat</pattern>
+    </patterns>
+  </object>
+  <object class="GtkFileChooserDialog" id="Read_SAS_filechooserdialog">
+    <property name="can_focus">False</property>
+    <property name="border_width">5</property>
+    <property name="title" translatable="yes">Write to HDF5</property>
+    <property name="role">GtkFileChooserDialog</property>
+    <property name="type_hint">dialog</property>
+    <property name="do_overwrite_confirmation">True</property>
+    <property name="filter">filefilter_sas</property>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="filechooserdialog-vbox10">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="filechooserdialog-action_area10">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="Read_SAS_filechooserdialog_cancel_button">
+                <property name="label">gtk-cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="Pallet_Read_Data_filechooserdialog_Cancel" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="Read_SAS_filechooserdialog_ok_button">
+                <property name="label">gtk-save</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="create_ReadSAS_filechooserdialog_OK" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkGrid" id="grid_SAS">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <child>
+              <object class="GtkLabel" id="Read_SAS_filechooserdialog_label11">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">variable_name</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="Read_SAS_filechooserdialog_entry_variable_name">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="text" translatable="yes">x</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="0">Read_SAS_filechooserdialog_cancel_button</action-widget>
+      <action-widget response="0">Read_SAS_filechooserdialog_ok_button</action-widget>
+    </action-widgets>
+  </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -1332,7 +1433,7 @@
                               <object class="GtkLabel" id="label05">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="label" translatable="yes">function5</property>
+                                <property name="label" translatable="yes">SAS</property>
                                 <property name="justify">center</property>
                                 <attributes>
                                   <attribute name="weight" value="bold"/>
