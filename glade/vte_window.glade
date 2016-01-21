@@ -2,6 +2,7 @@
 <!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
+  <requires lib="" version="3.12"/>
   <requires lib="vte-2.91" version="0.38"/>
   <object class="GtkWindow" id="VTE_MainWindow">
     <property name="can_focus">False</property>
@@ -193,12 +194,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="toolbutton2">
+              <object class="GtkToolButton" id="Open_Script">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">None</property>
+                <property name="label" translatable="yes">Open_Script</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-missing-image</property>
+                <property name="stock_id">gtk-open</property>
+                <signal name="clicked" handler="Script_FileOpen_Dialog" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -242,8 +244,8 @@
                 <property name="encoding">UTF-8</property>
                 <property name="scrollback_lines">5120</property>
                 <property name="scroll_on_keystroke">True</property>
-                <accelerator key="v" signal="paste-clipboard" modifiers="GDK_CONTROL_MASK"/>
                 <accelerator key="c" signal="copy-clipboard" modifiers="GDK_CONTROL_MASK"/>
+                <accelerator key="v" signal="paste-clipboard" modifiers="GDK_CONTROL_MASK"/>
               </object>
             </child>
           </object>

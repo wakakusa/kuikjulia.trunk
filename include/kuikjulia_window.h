@@ -13,3 +13,4 @@ typedef struct {
   StructWindowWidget MainWindow; 
   StructWindowWidget AboutDialog;
   StructWindowWidget GuiHelp; 
+  StructWindowWidget GuiShell; 

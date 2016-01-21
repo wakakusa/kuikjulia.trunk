@@ -140,6 +140,19 @@ typedef struct {
 	GtkEntry *entry_groupe_name;//
 	gint groupe_name_length;
 	
+	gchar *sheet;//String
+	GtkEntry *entry_sheet;
+	gint sheet_length;
+
+	gchar *region;//String
+	GtkEntry *entry_region;
+	gint region_length;
+	
+	gchar *colnames;//Vector{UTF8String}
+	GtkCheckButton *checkbutton_colnames;
+	GtkEntry *entry_colnames;
+	gint colnames_length;
+	
 }StructPalletReadWriteData;
 
 /*構造体変数名を宣言*/

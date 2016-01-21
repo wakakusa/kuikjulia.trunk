@@ -35,6 +35,34 @@ G_MODULE_EXPORT void cb_GUI_Help_Serch( GtkEntry *GUI_Help_Entry01, gpointer use
   gchar *script1;
  
   /*ラベルに表示する文字列作成*/
-  script1 = g_strconcat("help(\"",gtk_entry_get_text(GUI_Help_Entry01),"\")\n",NULL);
+  script1 = g_strconcat("?",gtk_entry_get_text(GUI_Help_Entry01),"\n",NULL);
+  Vte_terminal_insert(&VTE[VTE_No],script1);
+} 
+
+/**********************************************************************************************
+ * function:julia shellの起動 
+ * 
+ * 
+ * glade:none
+ **********************************************************************************************/
+G_MODULE_EXPORT void cb_julia_GUI_Shell(GtkWidget *widget, gpointer data)
+{
+  create_pallet(&GuiShell,UserInterfaceFile1,"GUI_Shell");
+    /* windowの表示 */
+  gtk_widget_show_all((GuiShell.window1)); 
+}
+
+/**********************************************************************************************
+ * function:Script Editor のWindowを作成するためのcallback関数。 
+ * 
+ * 
+ * glade:none
+ **********************************************************************************************/
+G_MODULE_EXPORT void cb_GUI_Shell_Run( GtkEntry *GUI_Shell_Entry01, gpointer user_data ) 
+{
+  gchar *script1;
+ 
+  /*ラベルに表示する文字列作成*/
+  script1 = g_strconcat(";",gtk_entry_get_text(GUI_Shell_Entry01),"\n",NULL);
   Vte_terminal_insert(&VTE[VTE_No],script1);
 } 

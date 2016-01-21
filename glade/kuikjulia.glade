@@ -307,8 +307,36 @@
             <property name="position">0</property>
           </packing>
         </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="GUI_Shell">
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">GUI_Shell</property>
+    <property name="role">GUI_Shell</property>
+    <property name="default_width">300</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="icon">./pixmaps/kuikjulia.svg</property>
+    <child>
+      <object class="GtkBox" id="hbox2">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
         <child>
-          <placeholder/>
+          <object class="GtkEntry" id="GUI_Shell_Entry01">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="tooltip_text" translatable="yes">ここに検索キーワードを入力してEnterキーを押下</property>
+            <property name="invisible_char">●</property>
+            <property name="primary_icon_activatable">False</property>
+            <property name="secondary_icon_activatable">False</property>
+            <signal name="activate" handler="cb_GUI_Shell_Run" swapped="no"/>
+            <accelerator key="KP_Enter" signal="activate"/>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
         </child>
       </object>
     </child>
@@ -675,6 +703,20 @@
               </packing>
             </child>
             <child>
+              <object class="GtkToolButton" id="open_script">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">toolbutton1</property>
+                <property name="use_underline">True</property>
+                <property name="stock_id">gtk-open</property>
+                <signal name="clicked" handler="Script_FileOpen_Dialog" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
               <object class="GtkToolButton" id="julia Help">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -689,25 +731,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkToolButton" id="toolbutton1">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">toolbutton1</property>
-                <property name="use_underline">True</property>
-                <property name="stock_id">gtk-missing-image</property>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="homogeneous">True</property>
-              </packing>
-            </child>
-            <child>
               <object class="GtkToolButton" id="toolbutton2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">toolbutton2</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-missing-image</property>
+                <property name="stock_id">gtk-yes</property>
+                <signal name="clicked" handler="cb_julia_GUI_Shell" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
