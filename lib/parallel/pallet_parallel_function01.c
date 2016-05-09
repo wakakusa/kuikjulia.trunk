@@ -32,7 +32,7 @@ void create_pallet1(StructPalletWidget *struct_widget,char UI_FILE[256],char Win
   }
 
   /* windowのオブジェクト取得 */
-  (struct_widget->window1) = GTK_WIDGET( gtk_builder_get_object(builder, Window_name)); 
+  (struct_widget->function_window1) = GTK_WIDGET( gtk_builder_get_object(builder, Window_name)); 
   /*複数のウィジェットを操作する場合、構造体に格納にすること。
    * 格納先にあわせて、GTK_LABELやGTK_ENTRYなどGTK_～を変更すること。
    *不明な場合はGTK_WIDGETでも可能。ただしエラーは出力される。*/
@@ -57,7 +57,7 @@ G_MODULE_EXPORT void Pallet_Master_filechooserdialog1_FileOpen_OK (GtkWidget *wi
 {
  
  
-  (Pallet_Master.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Master.window1));
+  (Pallet_Master.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Master.function_window1));
   
   sprintf(Pallet_Master.header_flag1,"F");
   
@@ -89,7 +89,7 @@ G_MODULE_EXPORT void Pallet_Master_filechooserdialog1_FileOpen_OK (GtkWidget *wi
   (Pallet_Master.proc_flag1) =TRUE;
 
   
-  gtk_widget_destroy((Pallet_Master.window1)); 
+  gtk_widget_destroy((Pallet_Master.function_window1)); 
 }
 
 /*****************************************************************************************************
@@ -101,12 +101,12 @@ G_MODULE_EXPORT void Pallet_Master_filechooserdialog1_FileOpen_OK (GtkWidget *wi
 G_MODULE_EXPORT void create_workdirectory_chooserdialog_FileOpen_OK (GtkWidget *widget,gpointer data  )
 {
 
-  (Pallet_Master.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Master.window1));
+  (Pallet_Master.file1) = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Master.function_window1));
 
   (Pallet_Master.script1) = g_strconcat("setwd(\"",Pallet_Master.file1,"\")\n",NULL);
   
   (Pallet_Master.proc_flag1) =TRUE;
-  gtk_widget_destroy((Pallet_Master.window1)); 
+  gtk_widget_destroy((Pallet_Master.function_window1)); 
 }
 
 

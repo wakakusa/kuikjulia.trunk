@@ -5,3 +5,4 @@
  *LastUpdate: 
 ******************************************************************************/
 #include "pallet_structures.c"
+#include "pallet_wr_data_structures.c"

@@ -345,7 +345,7 @@
     <property name="can_focus">False</property>
     <property name="type_hint">dialog</property>
     <property name="program_name">kuikjulia</property>
-    <property name="version">0.02.4</property>
+    <property name="version">0.02.5</property>
     <property name="comments" translatable="yes">GUI for julia by GTK3</property>
     <property name="authors">wakakusa</property>
     <property name="logo">./pixmaps/kuikjulia.svg</property>
@@ -406,6 +406,11 @@
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="stock">gtk-page-setup</property>
+  </object>
+  <object class="GtkImage" id="image8">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-connect</property>
   </object>
   <object class="GtkWindow" id="kuikjulia_MainWindow">
     <property name="can_focus">False</property>
@@ -631,6 +636,16 @@
                         <property name="image">image7</property>
                         <property name="use_stock">False</property>
                         <signal name="button-release-event" handler="cb_Pallet_Write_Data" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="parallel">
+                        <property name="label" translatable="yes">Parallel</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="image">image8</property>
+                        <property name="use_stock">False</property>
+                        <signal name="button-release-event" handler="cb_Pallet_Parallel" swapped="no"/>
                       </object>
                     </child>
                   </object>

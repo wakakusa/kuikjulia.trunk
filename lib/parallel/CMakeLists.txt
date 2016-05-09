@@ -5,12 +5,14 @@
 #project(kuikjulia)
 
 # SHARED Libraryのバージョン
-SET(soserial "1.0.0")
+SET(soparallel "1.0.0")
 
 ###### EXECUTABLE&SORCE_DEFINE #####
 ## 元となるソースSET
 SET(PALLET ${PROJECT_LIBRARY_DIR}/pallet_create.c)
-SET(FUNCTION_SOURCE pallet_master.c pallet_master_function01.c)
+SET(FUNCTION_SOURCE pallet_parallel.c
+#pallet_parallel_function01.c
+pallet_parallel_function02.c)
 
 
 ##ライブラリの作成

@@ -89,6 +89,7 @@ G_MODULE_EXPORT void start_script_editor(GtkWidget *widget, gpointer data)
 G_MODULE_EXPORT void Get_Management_SCRIPTEDITOR_No(GtkLabel *scriptEditor_SCRIPTEDITOR_No)
 {
   SCRIPTEDITOR_No=atoi( gtk_label_get_text( scriptEditor_SCRIPTEDITOR_No ) );
+  g_print("SCRIPTEDITOR_No=%d\n",SCRIPTEDITOR_No);
   sleep(0);
 }
 
