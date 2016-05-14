@@ -12,7 +12,7 @@
  * 
  * glade:Pallet_Filesystem
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_Pallet_Filesystem( GtkImageMenuItem *pallet_test, gpointer user_data ) 
+G_MODULE_EXPORT void cb_Pallet_Filesystem( GtkImageMenuItem *pallet_filesystem, gpointer user_data ) 
 {
   (Pallet_Filesystem.process_check_flag1) =FALSE;
   create_pallet(&Pallet_Filesystem,PalletInterfaceFile01,"Pallet_Filesystem");

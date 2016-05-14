@@ -18,7 +18,7 @@
  * 
  * glade:Pallet_Write_Data
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_Pallet_Write_Data( GtkImageMenuItem *pallet_test, gpointer user_data ) 
+G_MODULE_EXPORT void cb_Pallet_Write_Data( GtkImageMenuItem *pallet_write_data, gpointer user_data ) 
 {
 	(Pallet_Write_Data.process_check_flag1) =FALSE;
 	create_pallet(&Pallet_Write_Data,PalletInterfaceFile03,"Pallet_Write_Data");

@@ -83,7 +83,7 @@ G_MODULE_EXPORT void ReadExcel_filechooserdialog_FileOpen_OK (GtkWidget *widget,
 	
 	//読み込み対象ファイル名を取得
 	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
-	Pallet_Read_Data.script1 =g_strconcat("using Taro\nTaro.init()\n",Pallet_Read_Data.variable_name,"=Taro.readxl(\"",Pallet_Read_Data.file_path1,"\"",NULL);
+	Pallet_Read_Data.script1 =g_strconcat("using Taro,DataFrames\nTaro.init()\n",Pallet_Read_Data.variable_name,"=Taro.readxl(\"",Pallet_Read_Data.file_path1,"\"",NULL);
 	g_free(Pallet_Read_Data.file_path1);
 	
 	//sheet

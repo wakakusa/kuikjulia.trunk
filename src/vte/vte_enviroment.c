@@ -149,7 +149,7 @@ extern int exe_enviroment_load(char INI_FILE[PATH_LENGTH])
 	fscanf(fp,"%s %d",&Dummy,&EXE_ENVIROMENT.Flag_history);
 	if(EXE_ENVIROMENT.Flag_history==TRUE)
 	{
-		EXE_ENVIROMENT.BIN_PATH=g_strconcat(EXE_ENVIROMENT.BIN_PATH," --no-history-file",NULL);
+		EXE_ENVIROMENT.BIN_PATH=g_strconcat(EXE_ENVIROMENT.BIN_PATH," --history-file=no",NULL);
 	}
 
 	/*startup*/

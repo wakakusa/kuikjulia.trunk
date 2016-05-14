@@ -18,7 +18,7 @@
  * 
  * glade:Pallet_Read_Data
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_Pallet_Read_Data( GtkImageMenuItem *pallet_test, gpointer user_data ) 
+G_MODULE_EXPORT void cb_Pallet_Read_Data( GtkImageMenuItem *pallet_read_data, gpointer user_data ) 
 {
   (Pallet_Read_Data.process_check_flag1) =FALSE;
   create_pallet(&Pallet_Read_Data,PalletInterfaceFile02,"Pallet_Read_Data");

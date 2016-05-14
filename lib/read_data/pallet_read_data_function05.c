@@ -63,7 +63,7 @@ G_MODULE_EXPORT void create_ReadSAS_filechooserdialog_OK (GtkWidget *widget,gpoi
 
 	//保存先ファイル名を取得
 	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
-	Pallet_Read_Data.script1 =g_strconcat("using DataRead\n",Pallet_Read_Data.variable_name,"=read_sas7bdat(\"",Pallet_Read_Data.file_path1,"\"",NULL);
+	Pallet_Read_Data.script1 =g_strconcat("using DataRead,DataFrames\n",Pallet_Read_Data.variable_name,"=read_sas7bdat(\"",Pallet_Read_Data.file_path1,"\"",NULL);
 	g_free(Pallet_Read_Data.file_path1);
 	
 	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);

@@ -65,7 +65,7 @@ G_MODULE_EXPORT void create_ReadHDF5_filechooserdialog_OK (GtkWidget *widget,gpo
 		
 	//保存先ファイル名を取得
 	Pallet_Read_Data.file_path1 = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(Pallet_Read_Data.function_window1));
-	Pallet_Read_Data.script1 =g_strconcat("using HDF5\n",Pallet_Read_Data.variable_name,"=h5read(\"",Pallet_Read_Data.file_path1,"\",\"",Pallet_Read_Data.groupe_name,"\"",NULL);
+	Pallet_Read_Data.script1 =g_strconcat("using HDF5,DataFrames\n",Pallet_Read_Data.variable_name,"=h5read(\"",Pallet_Read_Data.file_path1,"\",\"",Pallet_Read_Data.groupe_name,"\"",NULL);
 	g_free(Pallet_Read_Data.file_path1);
 	
 	Pallet_Read_Data.script1=g_strconcat(Pallet_Read_Data.script1,");\n",NULL);

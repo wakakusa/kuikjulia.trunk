@@ -12,7 +12,7 @@
  * 
  * glade:Pallet_Operation
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_Pallet_Parallel( GtkImageMenuItem *pallet_test, gpointer user_data ) 
+G_MODULE_EXPORT void cb_Pallet_Parallel( GtkImageMenuItem *pallet_parallel, gpointer user_data ) 
 {
   create_pallet(&Pallet_Parallel,PalletInterfaceFile04,"Pallet_Parallel");
     /* windowの表示 */
@@ -25,7 +25,7 @@ G_MODULE_EXPORT void cb_Pallet_Parallel( GtkImageMenuItem *pallet_test, gpointer
  * 
  * glade:none
 *****************************************************************************************************/
-G_MODULE_EXPORT void Pallet_Parallel_filechooserdialog1_Cancel(GtkWidget *widget, gpointer data)
+G_MODULE_EXPORT void Pallet_Parallel_Cancel(GtkWidget *widget, gpointer data)
 {
   gtk_widget_destroy((Pallet_Parallel.pallet_window)); 
 }

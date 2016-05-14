@@ -5,4 +5,4 @@
 cmake .
 make -j4
 make
-/home/wakakusa/kuikjulia.trunk/src/kuikjulia
+`echo $HOME`/kuikjulia.trunk/src/kuikjulia

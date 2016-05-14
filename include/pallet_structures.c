@@ -41,8 +41,10 @@ typedef struct {
 	gchar *file_path1;	//set file name
 	gchar *script1;				// script of command
 	gboolean process_check_flag1;	//proc_flag1:OK button clicked
-	const gchar *variable_name;
-	GtkEntry *entry_variable_name;//
+	const gchar *variable_numeric;
+	GtkEntry *entry_variable_numeric;//
+	const gchar *variable;
+	GtkEntry *entry_variable;//
 }StructPalletParallelWidget;
 
 /*構造体変数名を宣言*/

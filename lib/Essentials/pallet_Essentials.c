@@ -12,7 +12,7 @@
  * 
  * glade:Pallet_Operation
 *****************************************************************************************************/
-G_MODULE_EXPORT void cb_Pallet_Master( GtkImageMenuItem *pallet_test, gpointer user_data ) 
+G_MODULE_EXPORT void cb_Pallet_Master( GtkImageMenuItem *pallet_essentials, gpointer user_data ) 
 {
   create_pallet(&Pallet_Master,PalletInterfaceFile99,"Pallet_Master");
     /* windowの表示 */
