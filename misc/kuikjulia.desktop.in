@@ -1,0 +1,7 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=${CMAKE_INSTALL_BIN_PREFIX}/kuikjulia
+Icon=${CMAKE_INSTALL_GLADE_PREFIX}/pixmaps/kuikjulia.svg
+Terminal=false
+Type=Application
+Name[ja_JP]=kuikjulia 
